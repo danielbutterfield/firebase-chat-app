@@ -5,6 +5,7 @@ import 'firebase/firestore'
 import './App.css'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
+import Button from './components/Button'
 
 firebase.initializeApp({
   // GitHub don't track my config!
@@ -16,10 +17,26 @@ const firestore = firebase.firestore()
 const App: React.FunctionComponent = () => {
   const [user] = useAuthState(auth)
 
+  const logIn = () => {
+    const provider = new firebase.auth.GoogleAuthProvider()
+    auth.signInWithPopup(provider)
+  }
+
+  const logOut = () => {
+    if (auth.currentUser) auth.signOut()
+  }
+
   return (
     <div className='App'>
       <h1>Chat Room</h1>
       <div>{user ? 'Logged In' : 'Logged Out'}</div>
+      <div>
+        {user ? (
+          <Button handleOnClick={logIn} buttonText='Log out' />
+        ) : (
+          <Button handleOnClick={logOut} buttonText='Log in with Google' />
+        )}
+      </div>
     </div>
   )
 }
