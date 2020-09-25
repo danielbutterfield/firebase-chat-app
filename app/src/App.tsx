@@ -28,15 +28,15 @@ const App: React.FunctionComponent = () => {
 
   return (
     <div className='App'>
-      <h1>Chat Room</h1>
-      <div>{user ? 'Logged In' : 'Logged Out'}</div>
-      <div>
+      <header>
+        <h1>Chat Room</h1>
         {!user ? (
           <Button handleOnClick={logIn} buttonText='Log in with Google' />
         ) : (
           <Button handleOnClick={logOut} buttonText='Log out' />
         )}
-      </div>
+      </header>
+      <section>{/* Chat Room */}</section>
     </div>
   )
 }
