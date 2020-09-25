@@ -31,10 +31,10 @@ const App: React.FunctionComponent = () => {
       <h1>Chat Room</h1>
       <div>{user ? 'Logged In' : 'Logged Out'}</div>
       <div>
-        {user ? (
-          <Button handleOnClick={logIn} buttonText='Log out' />
+        {!user ? (
+          <Button handleOnClick={logIn} buttonText='Log in with Google' />
         ) : (
-          <Button handleOnClick={logOut} buttonText='Log in with Google' />
+          <Button handleOnClick={logOut} buttonText='Log out' />
         )}
       </div>
     </div>
