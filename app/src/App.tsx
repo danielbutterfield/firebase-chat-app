@@ -14,7 +14,14 @@ const auth = firebase.auth()
 const firestore = firebase.firestore()
 
 const App: React.FunctionComponent = () => {
-  return <div className='App'>Chat Room</div>
+  const [user] = useAuthState(auth)
+
+  return (
+    <div className='App'>
+      <h1>Chat Room</h1>
+      <div>{user ? 'Logged In' : 'Logged Out'}</div>
+    </div>
+  )
 }
 
 export default App
