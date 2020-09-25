@@ -6,6 +6,7 @@ import './App.css'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import Button from './components/Button'
+import ChatRoom from './components/ChatRoom'
 
 firebase.initializeApp({
   // GitHub don't track my config!
@@ -29,14 +30,16 @@ const App: React.FunctionComponent = () => {
   return (
     <div className='App'>
       <header>
-        <h1>Chat Room</h1>
+        <h1>Chat Room App</h1>
         {!user ? (
           <Button handleOnClick={logIn} buttonText='Log in with Google' />
         ) : (
           <Button handleOnClick={logOut} buttonText='Log out' />
         )}
       </header>
-      <section>{/* Chat Room */}</section>
+      <section>
+        <ChatRoom />
+      </section>
     </div>
   )
 }
