@@ -4,7 +4,6 @@ import 'firebase/auth'
 import 'firebase/firestore'
 import './App.css'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
 import Button from './components/Button'
 import ChatRoom from './components/ChatRoom'
 
@@ -17,6 +16,7 @@ const firestore = firebase.firestore()
 
 const App: React.FunctionComponent = () => {
   const [user] = useAuthState(auth)
+  const messagesRef = firestore.collection('messages')
 
   const logIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider()
@@ -26,6 +26,8 @@ const App: React.FunctionComponent = () => {
   const logOut = () => {
     if (auth.currentUser) auth.signOut()
   }
+
+  const getTimestamp = () => firebase.firestore.FieldValue.serverTimestamp()
 
   return (
     <div className='App'>
@@ -38,7 +40,11 @@ const App: React.FunctionComponent = () => {
         )}
       </header>
       <section>
-        <ChatRoom />
+        <ChatRoom
+          getTimestamp={getTimestamp}
+          messagesRef={messagesRef}
+          user={auth.currentUser}
+        />
       </section>
     </div>
   )
