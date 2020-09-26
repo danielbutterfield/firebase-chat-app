@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
+import ChatMessage from './ChatMessage'
 
 interface ChatRoomProps {
   messagesRef: firebase.firestore.CollectionReference
@@ -38,13 +39,18 @@ const ChatRoom: React.FunctionComponent<ChatRoomProps> = ({
   return (
     <div>
       <main>
-        {messages && messages.map((message: any) => <p>{message.text}</p>)}
+        {messages &&
+          // useCollectionData<unknown>
+          messages.map((message: any) => (
+            <ChatMessage key={message.id} message={message} user={user} />
+          ))}
       </main>
       <form onSubmit={sendMessage}>
         <input
           value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          placeholder='say something nice'
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setNewMessage(event.target.value)
+          }
         />
         <button type='submit' disabled={!newMessage}>
           Send
