@@ -22,11 +22,21 @@ img.profile {
   width: 40px;
 }
 
+header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 0;
+}
+
 button {
   border: 2px solid black;
   cursor: pointer;
   padding: 10px;
-  width: 100px;
+  width: 150px;
 
   &:hover {
     background-color: darken($off-white, 5%);
