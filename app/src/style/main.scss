@@ -39,6 +39,7 @@ main > div {
   padding: 5px;
   border-radius: 10px;
   margin: 10px;
+
   p {
     padding: 0 5px;
   }
@@ -50,6 +51,7 @@ main > div {
   &.sent {
     background-color: rgb(57, 103, 255);
     color: $off-white;
+    flex-direction: row-reverse;
   }
 }
 
