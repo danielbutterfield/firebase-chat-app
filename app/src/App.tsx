@@ -40,11 +40,15 @@ const App: React.FunctionComponent = () => {
         )}
       </header>
       <section>
-        <ChatRoom
-          getTimestamp={getTimestamp}
-          messagesRef={messagesRef}
-          user={auth.currentUser}
-        />
+        {!user ? (
+          <p>Sign in to gain access.</p>
+        ) : (
+          <ChatRoom
+            getTimestamp={getTimestamp}
+            messagesRef={messagesRef}
+            user={auth.currentUser}
+          />
+        )}
       </section>
     </div>
   )
