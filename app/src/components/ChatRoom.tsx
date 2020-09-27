@@ -41,9 +41,19 @@ const ChatRoom: React.FunctionComponent<ChatRoomProps> = ({
       <main>
         {messages &&
           // useCollectionData<unknown>
-          messages.map((message: any) => (
-            <ChatMessage key={message.id} message={message} user={user} />
-          ))}
+          messages.map((message: any) => {
+            const { photoURL, text, uid } = message
+
+            return (
+              <ChatMessage
+                key={message.id}
+                photoURL={photoURL}
+                text={text}
+                uid={uid}
+                user={user}
+              />
+            )
+          })}
       </main>
       <form onSubmit={sendMessage}>
         <input

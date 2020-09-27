@@ -1,18 +1,23 @@
 import * as React from 'react'
 
 interface ButtonProps {
-  message: any
+  photoURL: string
+  text: string
+  uid: string
   user: firebase.User | null
 }
 
-const Button: React.FunctionComponent<ButtonProps> = ({ message, user }) => {
-  const { uid, text, photoURL } = message
-
+const Button: React.FunctionComponent<ButtonProps> = ({
+  photoURL,
+  text,
+  uid,
+  user,
+}) => {
   const messageType = user && user.uid === uid ? 'sent' : 'received'
 
   return (
     <div className={messageType}>
-      <img src={photoURL} />
+      <img src={photoURL} alt='User Profile' />
       <p>{text}</p>
     </div>
   )
