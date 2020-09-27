@@ -6,7 +6,6 @@ import './style/main.scss'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import Button from './components/Button'
 import ChatRoom from './components/ChatRoom'
-import LoginImage from './assets/login.png'
 
 firebase.initializeApp({
   // GitHub don't track my config!
@@ -42,14 +41,7 @@ const App: React.FunctionComponent = () => {
       </header>
       <section>
         {!user ? (
-          <>
-            <p>Sign in to gain access.</p>
-            <img
-              className='login'
-              src={LoginImage}
-              alt='Person unlocking door'
-            />
-          </>
+          <p>Sign in to gain access.</p>
         ) : (
           <ChatRoom
             getTimestamp={getTimestamp}
