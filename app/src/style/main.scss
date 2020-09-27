@@ -33,6 +33,21 @@ h1 {
   margin: 0;
 }
 
+// ChatMessage.tsx
+main > div {
+  display: flex;
+  padding: 5px;
+
+  p {
+    padding: 0 5px;
+  }
+
+  &.sent {
+    background-color: rgb(57, 103, 255);
+    color: $off-white;
+  }
+}
+
 button {
   border: 2px solid black;
   cursor: pointer;
