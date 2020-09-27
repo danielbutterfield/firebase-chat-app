@@ -37,15 +37,27 @@ h1 {
 main > div {
   display: flex;
   padding: 5px;
-
+  border-radius: 10px;
+  margin: 10px;
   p {
     padding: 0 5px;
+  }
+
+  &.received {
+    background-color: darken($off-white, 10%);
   }
 
   &.sent {
     background-color: rgb(57, 103, 255);
     color: $off-white;
   }
+}
+
+input {
+  border: 2px solid black;
+  cursor: text;
+  outline: none;
+  padding: 10px;
 }
 
 button {
