@@ -61,6 +61,7 @@ const ChatRoom: React.FunctionComponent<ChatRoomProps> = ({
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setNewMessage(event.target.value)
           }
+          placeholder='Start typing...'
         />
         <button type='submit' disabled={!newMessage}>
           Send
