@@ -1,5 +1,4 @@
 @import 'colors';
-@import 'mixins';
 
 // Parent:   .stick-man
 // Elements: .stick-man__head .stick-man__arm
@@ -10,10 +9,6 @@ body {
   font-family: Fira Code, monospace;
   margin: 0;
   padding: 0;
-}
-
-.elevated {
-  @include elevated();
 }
 
 .App {
