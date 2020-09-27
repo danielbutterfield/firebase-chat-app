@@ -18,10 +18,11 @@ const Button: React.FunctionComponent<ButtonProps> = ({
   return (
     <div className={messageType}>
       <img
+        alt='User Profile'
+        className='profile'
         src={
           photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'
         }
-        alt='User Profile'
       />
       <p>{text}</p>
     </div>
