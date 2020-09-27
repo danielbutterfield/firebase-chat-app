@@ -1,0 +1,28 @@
+@import 'colors';
+@import 'mixins';
+
+// Parent:   .stick-man
+// Elements: .stick-man__head .stick-man__arm
+// Modifier: .stick-man--blue .stick-man--yellow
+
+body {
+  background-color: $off-white;
+  font-family: Fira Code, monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+img.profile {
+  border-radius: 50%;
+  height: 40px;
+  margin: 2px 5px;
+  width: 40px;
+}
+
+.elevated {
+  @include elevated();
+}

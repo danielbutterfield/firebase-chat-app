@@ -1,0 +1,8 @@
+@mixin elevated {
+  background-color: $off-white;
+  border-radius: 12px;
+  border: 1px solid $transparent-white;
+  box-shadow: -6px -6px 26px 0 $light-shadow;
+  box-shadow: 6px 6px 16px 0 $dark-shadow;
+  padding: 20px;
+}
