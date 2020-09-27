@@ -12,6 +12,10 @@ body {
   padding: 0;
 }
 
+.elevated {
+  @include elevated();
+}
+
 .App {
   text-align: center;
 }
@@ -23,6 +27,13 @@ img.profile {
   width: 40px;
 }
 
-.elevated {
-  @include elevated();
+button {
+  border: 2px solid black;
+  cursor: pointer;
+  padding: 10px;
+  width: 100px;
+
+  &:hover {
+    background-color: darken($off-white, 5%);
+  }
 }
